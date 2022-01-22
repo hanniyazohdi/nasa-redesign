@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThreeJS Starter</title>
+    <title>NASA</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300&family=Kanit:wght@500&display=swap" rel="stylesheet">
+
 </head>
 <body>
+
+    <div class="container">
+        <div class="content">
+            <h1>National Aeronautics <br>&amp; Space Administration</h1>
+            <p>NASA.gov brings you the latest news, images and videos from America's space agency, pioneering the future in space exploration and scientific discovery<br>NASA Official: Brian Dunbar<br>Website by Team 2
+            </p>
+        </div>
+    </div>
+
+
     <canvas class="webgl"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/CSSRulePlugin.min.js" integrity="sha512-Aa3UvVB5yhH/dNXMt8nGZDD15Xmntq1ODcavfgT8omSLaomrJKYybWczzc6UJYDUAdqR1hmDJ47V4Ux50PPIuw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        const border = CSSRulePlugin.getRule('.content:before')
+        const h1 = document.querySelector('h1')
+        const p = document.querySelector('p')
+        const tl = gsap.timeline()
+
+        tl.from(border, { delay: .5, duration: 4, cssRule: {scaleX: 0}})
+        tl.to(h1, { duration: 2, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%', y: '30px' }, "-=3")
+        tl.to(p, { duration: 4, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%', y: '30px' }, "-=2")
+
+    </script>
 </body>
 </html>
